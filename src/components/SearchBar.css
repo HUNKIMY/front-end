@@ -1,60 +1,60 @@
 /* SearchBar.css */
-.logo {
-    padding: 40px;
-    font-size: 100px;
-    padding-right: 60px;
-  }
-.search-bar-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f5f5f5;
-  }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .search-bar input[type="text"] {
-    width: 500px;
-    height: 50px;
-    margin-right: 10px;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    background-color: #f5f5f5;
-    color: #333333;
-  }
-  
-  .search-bar button {
-    width: 80px;
-    height: 50px;
-    background-color: darkgrey;
-    color: #ffffff;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .search-bar button:hover {
-    background-color: #080808;
-  }
-  
-  .search-results {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .search-results li {
-    margin-bottom: 5px;
-    color: #333333;
-  }
-  
+.real-search-bar-logo {
+  padding: 40px;
+  font-size: 100px;
+  padding-right: 60px;
+}
+
+.real-search-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.real-search-bar-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.real-search-bar-form input[type="text"] {
+  width: 500px;
+  height: 50px;
+  margin-right: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+  color: #333333;
+}
+
+.real-search-bar-form button {
+  width: 80px;
+  height: 50px;
+  background-color: darkgrey;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.real-search-bar-form button:hover {
+  background-color: #080808;
+}
+
+.search-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-results li {
+  margin-bottom: 5px;
+  color: #333333;
+}
