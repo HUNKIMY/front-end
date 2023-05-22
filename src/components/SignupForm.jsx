@@ -43,7 +43,7 @@ const SignupForm = () => {
     };
   return (
     <div className="signup-container">
-      <h1>Stocks ing</h1>
+      <h1>Stocks.ing</h1>
       <form className="signup-form" onSubmit={handleSignup}>
         <h2 className="form-title">회원가입</h2>
         {error && <p className="error-message">{error}</p>}

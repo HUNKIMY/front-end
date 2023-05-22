@@ -40,14 +40,14 @@ const ResultPage = () => {
   // Word cloud options
   const wordCloudOptions = {
     rotations: 2,
-    rotationAngles: [-90, 0],
+    rotationAngles: [0, 0],
     fontSizes: [20, 60],
   };
 
   return (
     <div className="result-page-container">
       <div className="search-bar-container">
-        <h1 className="logo">Stocks ing</h1>
+        <h1 className="logo">Stocks.ing</h1>
         <form className="search-bar" onSubmit={handleSearchSubmit}>
           <input
             type="text"
@@ -58,7 +58,7 @@ const ResultPage = () => {
           <button type="submit">검색</button>
         </form>
       </div>
-      <h2 className='keyword'>검색 키워드: 삼성전자</h2>
+      <h2 className='keyword'>검색 키워드: 티맥스 소프트</h2>
       <div className='result-container'>
       <div className="word-cloud-container">
         

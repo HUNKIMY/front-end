@@ -66,12 +66,18 @@
 .word-cloud-container {
   flex: 1;
   max-width: 600px;
-  margin-right: 20px;
+  height: 450px;
+ 
+}
+.react-wordcloud span {
+  /* 단어 요소에 대한 스타일 */
+  white-space: nowrap; /* 단어를 한 줄로 표시 */
 }
 
 .chart-container {
   flex: 1;
-  max-width: 400px;
+  max-width: 600px;
+  height: 450px;
 }
 
 /* Responsive Styles */
