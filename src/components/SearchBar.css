@@ -3,6 +3,7 @@
   padding: 40px;
   font-size: 100px;
   padding-right: 60px;
+  margin-top: 0px;
 }
 
 .real-search-bar-container {
@@ -18,10 +19,11 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .real-search-bar-form input[type="text"] {
-  width: 500px;
+  width: 150px;
   height: 50px;
   margin-right: 10px;
   padding: 10px;
@@ -31,6 +33,7 @@
   background-color: #f5f5f5;
   color: #333333;
 }
+
 
 .real-search-bar-form button {
   width: 80px;
@@ -42,6 +45,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 65px;
 }
 
 .real-search-bar-form button:hover {

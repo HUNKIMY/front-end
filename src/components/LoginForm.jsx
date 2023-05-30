@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './LoginForm.css';
 
-const LoginForm = (props) => {
+const api = axios.create({
+  baseURL: 'http://localhost:8080'
+});
+
+const LoginForm = ({loginCallBack}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -11,27 +15,33 @@ const LoginForm = (props) => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-
+  
     try {
-      const response = await axios.post('/app/users/log-in', { email, password });
-      // 서버로부터의 응답을 확인하고 적절한 처리를 수행합니다.
-      console.log(response.data);
-      //로그인 성공시 검색창 이동
-      navigate('/search');
-    } catch (error) {
-      // 오류 처리
-      setError('로그인 실패');
+      let data = { email, password };
+      const response = await api.post('/app/users/log-in', JSON.stringify(data), {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.data && response.data.result && response.data.result.userIdx) {
+        const userIdx = response.data.result.userIdx;
+        localStorage.setItem('userIdx', userIdx);
+        api.defaults.headers.common['Authorization'] = 'Bearer ' + response.data;
+        loginCallBack(true);
+        navigate(`/app/users/${userIdx}/search`);
+      } else {
+        console.log('Invalid response data:', response.data);
+      }
+    } catch (ex) {
+      console.log('login request failed:', ex);
     }
-
-
-    // if (email && password) {
-    //   setError('');
-    //   alert('로그인 성공!');
-    //   navigate('/search');
-    // } else {
-    //   setError('이메일과 비밀번호를 입력해주세요.');
-    // }
   };
+  
+  
+  useEffect(() => {
+    console.log("LoginPage render ... ")
+  });
 
   return (
     <div className="login-container">
@@ -63,3 +73,4 @@ const LoginForm = (props) => {
 };
 
 export default LoginForm;
+
