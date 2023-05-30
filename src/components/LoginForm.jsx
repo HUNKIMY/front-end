@@ -35,7 +35,7 @@ const LoginForm = (props) => {
 
   return (
     <div className="login-container">
-      <h1>Stocks ing</h1>
+      <h1>Stocks.ing</h1>
       <form className="login-form" onSubmit={handleLogin}>
         <h2 className="form-title">로그인</h2>
         {error && <p className="error-message">{error}</p>}

@@ -26,7 +26,7 @@ const SearchBar = () => {
 
   return (
     <div className="real-search-bar-container">
-      <h1 className="real-search-bar-logo">Stocks ing</h1>
+      <h1 className="real-search-bar-logo">Stocks.ing</h1>
       <form className="real-search-bar-form" onSubmit={handleSearchSubmit}>
         <input
           type="text"
