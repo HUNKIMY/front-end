@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080' // Update with your API URL
+  baseURL: 'http://localhost:8080',
 });
 
-const MyPage = ({ userIdx }) => {
+const MyPage = () => {
+  const { userIdx } = useParams();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await api.get(`/app/users/${userIdx}`); // Update the API endpoint with the appropriate route
+        const response = await api.get(`/app/users/${userIdx}`);
         const userData = response.data;
         setUser(userData);
       } catch (error) {
@@ -19,24 +21,24 @@ const MyPage = ({ userIdx }) => {
       }
     };
 
-    fetchUser();
+    if (userIdx) {
+      fetchUser();
+    }
   }, [userIdx]);
 
   return (
     <div>
-      {user ? (
-        <div>
-          <h1>User Profile</h1>
-          <p>User ID: {user.userIdx}</p>
-          <p>Name: {user.name}</p>
-          <p>Email: {user.email}</p>
-          {/* Render additional user information as needed */}
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
+      <h1>My page 검색 히스토리</h1>
+      <ul>
+        {user && (
+          <li key={user.userIdx}>
+            company: {user.companyName}, page: {user.page}, days: {user.days}, created at: {user.createdAt}, updated at: {user.updatedAt}
+          </li>
+        )}
+      </ul>
     </div>
   );
 };
 
 export default MyPage;
+

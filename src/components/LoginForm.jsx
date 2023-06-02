@@ -7,7 +7,7 @@ const api = axios.create({
   baseURL: 'http://localhost:8080'
 });
 
-const LoginForm = ({loginCallBack}) => {
+const LoginForm = ({ loginCallBack }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -15,7 +15,7 @@ const LoginForm = ({loginCallBack}) => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-  
+
     try {
       let data = { email, password };
       const response = await api.post('/app/users/log-in', JSON.stringify(data), {
@@ -23,11 +23,13 @@ const LoginForm = ({loginCallBack}) => {
           'Content-Type': 'application/json',
         },
       });
-  
+
       if (response.data && response.data.result && response.data.result.userIdx) {
         const userIdx = response.data.result.userIdx;
+        const token = response.data.token;
         localStorage.setItem('userIdx', userIdx);
-        api.defaults.headers.common['Authorization'] = 'Bearer ' + response.data;
+        localStorage.setItem('token', token);
+        api.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         loginCallBack(true);
         navigate(`/app/users/${userIdx}/search`);
       } else {
@@ -37,8 +39,7 @@ const LoginForm = ({loginCallBack}) => {
       console.log('login request failed:', ex);
     }
   };
-  
-  
+
   useEffect(() => {
     console.log("LoginPage render ... ")
   });
@@ -73,4 +74,3 @@ const LoginForm = ({loginCallBack}) => {
 };
 
 export default LoginForm;
-
