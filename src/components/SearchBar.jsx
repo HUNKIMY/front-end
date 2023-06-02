@@ -41,10 +41,7 @@ const SearchBar = (userIdx) => {
 
   return (
     <div className="real-search-bar-container">
-    <div className="real-search-bar-top-right">
-      <button onClick={handleMyPageClick}>My Page: 검색 히스토리</button>
-    </div>
-      <h1 className="real-search-bar-logo">Stocks.ing</h1>
+      <h1 className="real-search-bar-logo">Stocks ing</h1>
       <form className="real-search-bar-form" onSubmit={handleSearchSubmit}>
         <div>
         <h4>주식 키워드</h4>
