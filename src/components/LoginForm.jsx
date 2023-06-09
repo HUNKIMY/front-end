@@ -20,21 +20,23 @@ const LoginForm = ({ loginCallBack }) => {
       let data = { email, password };
       const response = await api.post('/app/users/log-in', JSON.stringify(data), {
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
       });
-
-      if (response.data && response.data.result && response.data.result.userIdx) {
+console.log(response.data.result.jwt)
+      if (response.data.result) {
         const userIdx = response.data.result.userIdx;
-        const token = response.data.token;
+        const token = response.data.jwt;
+        const { jwt } = response.data.result;
         localStorage.setItem('userIdx', userIdx);
-        localStorage.setItem('token', token);
+        localStorage.setItem('jwt', jwt); // Use 'x-access-token' as the key
         api.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         loginCallBack(true);
         navigate(`/app/users/${userIdx}/search`);
       } else {
         console.log('Invalid response data:', response.data);
       }
+      
     } catch (ex) {
       console.log('login request failed:', ex);
     }

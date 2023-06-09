@@ -1,12 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import ReactWordcloud from 'react-wordcloud';
 import { VictoryPie } from 'victory';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './ResultPage.css';
+import Button from 'react-bootstrap/Button';
 
 const ResultPage = () => {
+  const baseUrl = 'http://localhost:8080';
+  const { userIdx } = useParams();
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
+  const [results, setResults] = useState(null);
+  const [userData, setUserData] = useState([]);
+  useEffect(() => {
+    getResults();
+  }, []);
+
+  async function getResults() {
+    const jwt = localStorage.getItem('jwt');
+    const userIdx = localStorage.getItem("userIdx");
+
+    try {
+      const response = await axios.get(`${baseUrl}/app/users/${userIdx}/search`, {
+        headers: {
+          'x-access-token': jwt,
+        },
+      });
+
+      console.log(response.data);
+      setResults(response.data.result);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -44,6 +71,28 @@ const ResultPage = () => {
     fontSizes: [20, 60],
   };
 
+  const handleMyPageClick = async(e) =>{
+    e.preventDefault();
+    const jwt = localStorage.getItem('jwt');
+    const userIdx = localStorage.getItem("userIdx");
+
+    try {
+      const response = await axios.get(`${baseUrl}/app/users/${userIdx}`, {
+        headers: {
+          'x-access-token': jwt,
+        },
+      });
+
+      console.log(response.data.result);
+      setUserData(response.data.result);
+      navigate(`/app/users/${userIdx}`);
+  
+    } catch (error) {
+      console.error(error);
+    }
+
+  }
+
   return (
     <div className="result-page-container">
       <div className="search-bar-container">
@@ -55,8 +104,11 @@ const ResultPage = () => {
             onChange={handleSearchChange}
             placeholder="검색어를 입력하세요"
           />
-          <button type="submit">검색</button>
+          <Button variant="dark" type="submit">검색</Button>
         </form>
+        <button className="mypagebutton" onClick={handleMyPageClick}>
+      My Page: 검색 히스토리
+    </button>
       </div>
       <h2 className='keyword'>검색 키워드: 티맥스 소프트</h2>
       <div className='result-container'>
@@ -76,6 +128,39 @@ const ResultPage = () => {
         />
       </div>
       </div>
+      {Array.isArray(results) ? (
+        results.length > 0 ? (
+          results.map((resulta) => {
+            return (
+              <div key={resulta.companyIdx}>
+                <h2>{resulta.companyName}</h2>
+                <img src={resulta.img1} alt="Image 1" />
+                <img src={resulta.img2} alt="Image 2" />
+              </div>
+            );
+          })
+        ) : (
+          <div>
+            {results && (
+              <>
+                <h2>{results.companyName}</h2>
+                <img src={results.img1} alt="Image 1" />
+                <img src={results.img2} alt="Image 2" />
+              </>
+            )}
+          </div>
+        )
+      ) : (
+        <div>
+          {results && (
+            <>
+              <h2>{results.companyName}</h2>
+              <img src={results.img1} alt="Image 1" />
+              <img src={results.img2} alt="Image 2" />
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import './MyPage.css';
 
 const api = axios.create({
   baseURL: 'http://localhost:8080',
@@ -8,37 +9,54 @@ const api = axios.create({
 
 const MyPage = () => {
   const { userIdx } = useParams();
-  const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchData = async () => {
+      const jwt = localStorage.getItem('jwt');
+      const userIdx = localStorage.getItem('userIdx');
+
       try {
-        const response = await api.get(`/app/users/${userIdx}`);
-        const userData = response.data;
-        setUser(userData);
+        const response = await api.get(`/app/users/${userIdx}`, {
+          headers: {
+            'x-access-token': jwt,
+          },
+        });
+
+        console.log(response.data.result);
+        setUserData(response.data.result);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
 
-    if (userIdx) {
-      fetchUser();
-    }
-  }, [userIdx]);
+    fetchData();
+  }, []);
 
   return (
-    <div>
-      <h1>My page 검색 히스토리</h1>
-      <ul>
-        {user && (
-          <li key={user.userIdx}>
-            company: {user.companyName}, page: {user.page}, days: {user.days}, created at: {user.createdAt}, updated at: {user.updatedAt}
-          </li>
-        )}
-      </ul>
+    <div className="my-page-container">
+      <h1 className="my-page-title">My page</h1>
+      <div className="list-container">
+        <ul className="search-history-list">
+          {userData.length > 0 ? (
+            userData.map((user, index) => (
+              <div key={index}>
+                <li>Company Name: {user.companyName}</li>
+                <li>Page: {user.page}</li>
+                <li>Days: {user.days}</li>
+                <li>Created At: {user.createdAt}</li>
+                <li>Updated At: {user.updatedAt}</li>
+              </div>
+            ))
+          ) : (
+            <li>No userdata found.</li>
+          )}
+        </ul>
+      </div>
     </div>
   );
 };
 
 export default MyPage;
-

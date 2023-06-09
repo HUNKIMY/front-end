@@ -1,93 +1,167 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './SearchBar.css';
 
-const SearchBar = (props) => {
-  const [searchQuery1, setSearchQuery1] = useState('');
-  const [searchQuery2, setSearchQuery2] = useState('');
-  const [searchQuery3, setSearchQuery3] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+const SearchBar = ({ loginCallBack }) => {
+  const baseUrl = 'http://localhost:8080';
+  const { userIdx } = useParams();
   const navigate = useNavigate();
-  const [token, setToken] = useState('');
+  const [input, setInput] = useState({
+    companyName: '',
+    page: '',
+    days: ''
+  });
+  const [results, setResults] = useState(null);
+  const [userData, setUserData] = useState([]);
 
-  useEffect(() => {
-    // 로그인 상태가 변경될 때마다 토큰을 업데이트
-    const storedToken = localStorage.getItem('token');
-    setToken(storedToken);
-  }, []);
+  async function getResults() {
+    const jwt = localStorage.getItem('jwt');
 
-  const handleSearchChange1 = (event) => {
-    setSearchQuery1(event.target.value);
-  };
-
-  const handleSearchChange2 = (event) => {
-    setSearchQuery2(event.target.value);
-  };
-
-  const handleSearchChange3 = (event) => {
-    setSearchQuery3(event.target.value);
-  };
-
-  const handleSearchSubmit = async (event) => {
-    event.preventDefault();
-    const searchQuery = `${searchQuery1} ${searchQuery2} ${searchQuery3}`; // Combine the search queries
     try {
-      const response = await axios.get(`/api/search?query=${encodeURIComponent(searchQuery)}`, {
+      const response = await axios.get(`${baseUrl}/app/users/${userIdx}/search`, {
         headers: {
-          Authorization: `Bearer ${token}` // 토큰을 헤더에 포함하여 요청
+          'x-access-token': jwt
         }
       });
-      setSearchResults(response.data);
-      navigate('/app/users/result'); // Navigate to the result page
-    } catch (error) {
-      console.error('검색 실패:', error);
-      setSearchResults([]);
-    }
-  };
+      console.log(response.data);
+      setResults(response.data);
 
-  const handleMyPageClick = (event) => {
-    event.preventDefault();
-    navigate(`/app/users/${localStorage.getItem('userIdx')}`);
-  };
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  function insertData(e) {
+    e.preventDefault();
+
+    const { companyName, page, days } = input;
+
+    const insertData = async () => {
+      await axios
+        .post(`${baseUrl}/app/users/${userIdx}/search`, {
+          companyName,
+          page,
+          days
+        })
+        .then((response) => {
+          console.log(response.data);
+          setInput({
+            companyName: '',
+            page: '',
+            days: ''
+          });
+          getResults();
+          navigate(`$/app/users/result`);
+        })
+        .catch((error) => {
+          console.error(error);
+          navigate(`/app/users/result`);
+        });
+    };
+    insertData();
+    console.log('입력 추가됨');
+  }
+
+  function changeText(e) {
+    const { name, value } = e.target;
+    setInput((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  }
+
+  const handleMyPageClick = async(e) =>{
+    e.preventDefault();
+    const jwt = localStorage.getItem('jwt');
+    const userIdx = localStorage.getItem("userIdx");
+
+    try {
+      const response = await axios.get(`${baseUrl}/app/users/${userIdx}`, {
+        headers: {
+          'x-access-token': jwt,
+        },
+      });
+
+      console.log(response.data.result);
+      setUserData(response.data.result);
+      navigate(`/app/users/${userIdx}`);
   
+    } catch (error) {
+      console.error(error);
+    }
+
+  }
 
   return (
     <div className="real-search-bar-container">
-      <button className="mypage-button" onClick={handleMyPageClick}>
-        My Page 검색 히스토리
-      </button>
-      <h1 className="real-search-bar-logo">Stocks ing</h1>
-      <form className="real-search-bar-form" onSubmit={handleSearchSubmit}>
-        <div>
-        <h4>주식 키워드</h4>
+    <button className="mypagebutton" onClick={handleMyPageClick}>
+      My Page: 검색 히스토리
+    </button>
+      <h1 className="real-search-bar-logo">Stocks.ing</h1>
+      <form className="real-search-bar-form" action="" onSubmit={insertData}>
+      <div>
+      <h4>주식 키워드</h4>
         <input
-          type="text"
-          value={searchQuery1}
-          onChange={handleSearchChange1}
+          type=""
+          required={true}
+          name="companyName"
+          value={input.companyName}
+          onChange={changeText}
           placeholder="예:티맥스 소프트"
-        />
-        </div>
-        <div>
-        <h4>조회 일</h4>
-        <input
-          type="text"
-          value={searchQuery2}
-          onChange={handleSearchChange2}
-          placeholder="예: 3"
         />
         </div>
         <div>
         <h4>조회 페이지</h4>
         <input
-          type="text"
-          value={searchQuery3}
-          onChange={handleSearchChange3}
+          type=""
+          required={true}
+          name="page"
+          value={input.page}
+          onChange={changeText}
           placeholder="예: 3"
         />
         </div>
-        <button type="submit">검색</button>
+        <div>
+        <h4>조회 일</h4>
+        <input
+          type=""
+          required={true}
+          name="days"
+          value={input.days}
+          onChange={changeText}
+          placeholder="예: 3"
+        />
+        </div>
+        <button variant="dark" type="submit">검색</button>
       </form>
+      {results && (
+        <div>
+          {Array.isArray(results) ? (
+            results.length > 0 ? (
+              results.map((result) => (
+                <div key={result.companyIdx}>
+                  <h2>{result.companyName}</h2>
+                  <img src={result.img1} alt="Image 1" />
+                  <img src={result.img2} alt="Image 2" />
+                </div>
+              ))
+            ) : (
+              <>
+                <h2>{results.companyName}</h2>
+                <img src={results.img1} alt="Image 1" />
+                <img src={results.img2} alt="Image 2" />
+              </>
+            )
+          ) : (
+            <>
+              <h2>{results.companyName}</h2>
+              <img src={results.img1} alt="Image 1" />
+              <img src={results.img2} alt="Image 2" />
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };
