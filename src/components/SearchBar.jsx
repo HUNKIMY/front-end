@@ -102,6 +102,7 @@ const SearchBar = ({ loginCallBack }) => {
 
   return (
     <div className="real-search-bar-container">
+      
     <button className="mypagebutton" onClick={handleMyPageClick}>
       My Page: 검색 히스토리
     </button>

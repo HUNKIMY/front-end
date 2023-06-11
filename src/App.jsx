@@ -85,14 +85,8 @@ const App = () => {
         <Route
           path="/"
           element={
-            isLogin ? (
-                  <>
-                  <SearchBar userIdx={userIdx} jwt={jwt} />
-                  <ResultPage userIdx={userIdx} jwt={jwt} />
-                </>
-            ) : (
               <LoginForm loginCallBack={loginCallBack} />
-            )
+            
           }
         />
       </Routes>
