@@ -34,6 +34,9 @@ const SearchBar = ({ loginCallBack }) => {
 
   function insertData(e) {
     e.preventDefault();
+    const jwt = localStorage.getItem('jwt');
+    const userIdx = localStorage.getItem("userIdx");
+    
 
     const { companyName, page, days } = input;
 
@@ -43,6 +46,10 @@ const SearchBar = ({ loginCallBack }) => {
           companyName,
           page,
           days
+        }, {
+          headers: {
+            'x-access-token': jwt
+          }
         })
         .then((response) => {
           console.log(response.data);
@@ -52,7 +59,7 @@ const SearchBar = ({ loginCallBack }) => {
             days: ''
           });
           getResults();
-          navigate(`$/app/users/result`);
+          navigate(`/app/users/result`);
         })
         .catch((error) => {
           console.error(error);
