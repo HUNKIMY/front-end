@@ -1,4 +1,613 @@
-/* ResultPage.css */
+.word-cloud-container{
+  width: 700px;
+  height: 500px;
+}
+.resultmypage{
+  position: absolute;
+  width: 355px;
+  height: 48px;
+  left: 1518px;
+  top: 50px;
+}
+.summary{
+  position: relative;
+
+  left: 46px;
+  right: 46px;
+  width: 1000px;
+
+  font-family: 'NanumSquare_ac';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 20px;
+  color: #2C2C2C;
+}
+
+
+
+.result-logo{
+  position: absolute;
+  width: 389px;
+  height: 48px;
+  left: 85px;
+  top: 51px;
+
+  font-family: 'NanumSquare_ac';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 44px;
+
+  color: #000000;
+}
+
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+
+
+.vector {
+  position: absolute;
+  left: 89.74%;
+  right: 9.42%;
+  top: 3.08%;
+  bottom: 96.09%;
+  border: 1.5px solid #2C2C2C;
+}
+
+/* 신주호 */
+.name1 {
+  position: absolute;
+  width: 67px;
+  height: 23px;
+  left: 1467px;
+  top: 58px;
+  font-family: 'NanumSquare';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 23px;
+  color: #2C2C2C;
+}
+
+/* 님 */
+.name2 {
+  position: absolute;
+  width: 40px;
+  height: 23px;
+  left: 1530px;
+  top: 58px;
+  font-family: 'NanumSquare';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #2C2C2C;
+}
+
+/* Group 9 */
+.group9 {
+  /* Rectangle 11 */
+  position: absolute;
+  width: 110px;
+  height: 28px;
+  left: 1578px;
+  top: 56px;
+
+  background: #424242;
+  border-radius: 5px;
+
+
+  /* my page */
+
+
+  position: absolute;
+  width: 77px;
+  height: 23px;
+  left: 1595px;
+  top: 58px;
+
+  font-family: 'NanumSquare';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 20px;
+  text-align: center;
+
+  color: #FFFFFF;
+
+}
+
+/* Ellipse 40
+.ellipse40 {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: 1774px;
+  top: 46px;
+  background: url(다운로드), linear-gradient(184.14deg, #1C1B16 18.05%, #14110C 85.42%);
+} */
+/* Rectangle 9 */
+.rectangle-9 {
+position: absolute;
+width: 728px;
+height: 463px;
+left: 1094px;
+top: 234px;
+background: #F8F8F8;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+
+/* Rectangle 5 */
+.rectangle-5 {
+position: absolute;
+width: 422px;
+height: 556px;
+left: 960px;
+top: 729px;
+background: #F8F8F8;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+
+/* Rectangle 6 */
+.rectangle-6 {
+box-sizing: border-box;
+position: absolute;
+width: 42px;
+height: 42px;
+left: 702px;
+top: 51px;
+background: #FFFFFF;
+border: 3px solid #D3D3D3;
+border-radius: 10px;
+}
+
+/* Rectangle 7 */
+.rectangle-7 {
+box-sizing: border-box;
+position: absolute;
+width: 42px;
+height: 42px;
+left: 857px;
+top: 51px;
+background: #FFFFFF;
+border: 3px solid #D3D3D3;
+border-radius: 10px;
+}
+
+/* 페이지 */
+.page {
+position: absolute;
+width: 60px;
+height: 25px;
+left: 757px;
+top: 66px;
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 25px;
+color: #2C2C2C;
+}
+
+/* 16:30 에 분석된 내용입니다 */
+.analysis-time {
+position: absolute;
+width: 600px;
+height: 25px;
+left: 104px;
+top: 181px;
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 400;
+font-size: 23px;
+line-height: 25px;
+color: #2C2C2C;
+}
+
+/* 일 전까지 */
+.until {
+position: absolute;
+width: 100px;
+height: 25px;
+left: 912px;
+top: 66px;
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 25px;
+color: #2C2C2C;
+}
+
+/* Stocks.ing */
+.stocks-ing {
+position: absolute;
+width: 389px;
+height: 48px;
+left: 96px;
+top: 46px;
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 800;
+font-size: 40px;
+line-height: 44px;
+color: #000000;
+}
+
+/* Rectangle 8 */
+.rectangle-8 {
+position: absolute;
+width: 965px;
+height: 463px;
+left: 96px;
+top: 234px;
+background: #F8F8F8;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+
+/* Group 5 */
+.group-5 {
+position: absolute;
+width: 104px;
+height: 33px;
+left: 129px;
+top: 268px;
+}
+
+/* Group 6 */
+.group-6 {
+position: absolute;
+width: 55px;
+height: 17px;
+left: 243px;
+top: 280px;
+}
+
+/* Iconsax/Linear/chartcircle */
+.chartcircle-icon {
+position: absolute;
+width: 18px;
+height: 18px;
+left: 1112px;
+top: 259px;
+}
+
+/* Group 2 */
+.group-2 {
+/* Rectangle 1 */
+box-sizing: border-box;
+position: absolute;
+width: 346px;
+height: 42px;
+left: 327px;
+top: 51px;
+background: #FFFFFF;
+border: 3px solid #D3D3D3;
+border-radius: 10px;
+}
+
+.iconsax-linear-searchnormal1 {
+/* Iconsax/Linear/searchnormal1 */
+position: absolute;
+width: 18px;
+height: 18px;
+left: 336px;
+top: 63px;
+/* 추가적인 스타일 적용 */
+
+}
+
+/* Group 4 */
+.group-4 {
+/* 긍・부정 비율 */
+position: absolute;
+width: 200px;
+height: 20px;
+left: 1138px;
+top: 259px;
+
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height */
+
+
+color: #2C2C2C;
+}
+
+/* Group 7 */
+.group-7 {
+/* 긍정 단어 순위 */
+position: absolute;
+width: 200px;
+height: 20px;
+left: 995px;
+top: 751px;
+
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height */
+
+
+color: #2C2C2C;
+}
+
+/* image 1 */
+/* .image-1 {
+position: absolute;
+width: 917px;
+height: 360px;
+left: 138px;
+top: 301px;
+background: url(image.png);
+} */
+
+/* image 4 */
+/* .image-4 {
+position: absolute;
+width: 568px;
+height: 348px;
+left: 1171px;
+top: 301px;
+background: url(image.png);
+} */
+
+/* Iconsax/Linear/arrangeverticalsquare */
+.arrangeverticalsquare-icon {
+position: absolute;
+width: 18px;
+height: 18px;
+left: 968px;
+top: 752px;
+}
+
+/* Rectangle 10 */
+.rectangle-10 {
+position: absolute;
+width: 422px;
+height: 556px;
+left: 1400px;
+top: 729px;
+background: #F8F8F8;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+
+/* Group 8 */
+.group-8 {
+/* 부정 단어 순위 */
+position: absolute;
+width: 200px;
+height: 20px;
+left: 1450px;
+top: 751px;
+
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height */
+color: #2C2C2C;
+}
+
+/* Iconsax/Linear/arrangeverticalsquare */
+.arrangeverticalsquare-icon-2 {
+position: absolute;
+width: 18px;
+height: 18px;
+left: 1423px;
+top: 752px;
+}
+
+/* Rectangle 11 */
+.rectangle-11 {
+position: absolute;
+width: 816px;
+height: 556px;
+left: 96px;
+top: 729px;
+background: #F8F8F8;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+
+/* Group 11 */
+.group-11 {
+/* 긍・부정 */
+position: absolute;
+width: 200px;
+height: 20px;
+left: 146px;
+top: 751px;
+
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height */
+
+
+color: #2C2C2C;
+}
+
+/* Group 10 */
+.group-10 {
+position: absolute;
+width: 355px;
+height: 48px;
+left: 1467px;
+top: 46px;
+}
+
+/* Iconsax/Linear/category */
+.category-icon {
+position: absolute;
+width: 18px;
+height: 18px;
+left: 119px;
+top: 751px;
+}
+
+/* Rectangle 12 */
+.rectangle-12 {
+position: absolute;
+width: 1087px;
+height: 556px;
+left: 96px;
+top: 1317px;
+background: #F8F8F8;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+
+/* Group 12 */
+.group-12 {
+position: absolute;
+width: 200px;
+height: 20px;
+left: 146px;
+top: 1339px;
+
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height */
+
+
+
+color: #2C2C2C;
+}
+
+/* 그림1-removebg-preview 1 */
+/* .removebg-preview-1 {
+position: absolute;
+width: 604px;
+height: 441px;
+left: 198px;
+top: 800px;
+background: url(그림1-removebg-preview.png);
+} */
+
+/* Iconsax/Linear/book1 */
+.book1-icon {
+position: absolute;
+width: 18px;
+height: 18px;
+left: 119px;
+top: 1340px;
+}
+
+/* Rectangle 13 */
+.rectangle-13 {
+position: absolute;
+width: 598px;
+height: 556px;
+left: 1224px;
+top: 1317px;
+background: #F8F8F8;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+
+/* Group 13 */
+.group-13 {
+/* 기사 요약 */
+position: absolute;
+width: 200px;
+height: 20px;
+left: 1274px;
+top: 1339px;
+
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height */
+
+
+color: #2C2C2C;
+}
+
+/* Iconsax/Linear/book1 */
+.book1-icon-2 {
+position: absolute;
+width: 18px;
+height: 18px;
+left: 1247px;
+top: 1340px;
+}
+
+/* image 5 */
+/* .image-5 {
+position: absolute;
+width: 990px;
+height: 165px;
+left: 128px;
+top: 1379px;
+background: url(image.png);
+} */
+
+/* image 6 */
+/* .image-6 {
+position: absolute;
+width: 990px;
+height: 165px;
+left: 128px;
+top: 1580px;
+background: url(image.png);
+} */
+
+/* image 7 */
+/* .image-7 {
+position: absolute;
+width: 990px;
+height: 165px;
+left: 128px;
+top: 1781px;
+background: url(image.png);
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ResultPage.css
 .result-page-container {
   display: flex;
   flex-direction: column;
@@ -56,7 +665,7 @@
 /* .keyword{
   padding: 10%
 } */
-.result-container {
+/* .result-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -71,17 +680,17 @@
 }
 .react-wordcloud span {
   /* 단어 요소에 대한 스타일 */
-  white-space: nowrap; /* 단어를 한 줄로 표시 */
-}
+  /* white-space: nowrap; /* 단어를 한 줄로 표시 */
+/* } */
 
-.chart-container {
+/* .chart-container {
   flex: 1;
   max-width: 600px;
   height: 450px;
-}
+} */
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .search-bar-container {
     flex-direction: column;
     justify-content: center;
@@ -103,4 +712,4 @@
     width: 70px;
     height: 26px;
   }
-}
+} */ 

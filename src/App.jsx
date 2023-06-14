@@ -13,8 +13,43 @@ const App = () => {
   const [userIdx, setUserIdx] = useState(null);
   const [jwt, setJwt] = useState(null);
   const [results, setResults] = useState(null);
+  const [positive, setPositive] = useState([]); 
   
+  useEffect(() => {
+    let isMounted = true; // Add a flag to track the component's mounted state
+  
+    getResults();
+  
+    return () => {
+      isMounted = false; // Set the flag to false when the component is unmounted
+    };
+  
+    async function getResults() {
+      const jwt = localStorage.getItem('jwt');
+      const userIdx = localStorage.getItem("userIdx");
 
+  
+      try {
+        const response = await axios.get(`${baseUrl}/app/users/${userIdx}/search`, {
+          headers: {
+            'x-access-token': jwt,
+          },
+        });
+  
+        if (isMounted) {
+          console.log(response.data.result);
+          setResults(response.data.result);
+          setPositive(response.data.result[0].keyword);
+          console.log(response.data.result[0].keyword);
+          // const negative = responseData;
+          
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }, []);
+  
   useEffect(() => {
     const storedJwt = localStorage.getItem('jwt');
     const storedUserIdx = localStorage.getItem('userIdx');

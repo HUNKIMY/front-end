@@ -1,4 +1,241 @@
-/* SearchBar.css */
+.newsimage {
+  position: absolute;
+  width: 1153px;
+  height: 725px;
+  right: 7px;
+  bottom: 0px;
+  
+}
+.real-search-bar-logo {
+  position: absolute;
+  width: 389px;
+  height: 48px;
+  left: 85px;
+  top: 150px;
+
+  font-family: 'NanumSquare_ac';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 44px;
+  }
+.real-search-bar-d {
+  position: absolute;
+  width: 1000px;
+  height: 136px;
+  left: 85px;
+  top: 248px;
+
+  font-family: 'NanumSquare_ac';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 66px;
+
+  color: #260776;
+}
+
+.real-search-bar-d2 {
+  position: absolute;
+width: 700px;
+height: 28px;
+left: 85px;
+top: 395px;
+
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 28px;
+/* identical to box height */
+
+
+color: #8A8A8A;
+}
+
+.firstbox {
+  position: absolute;
+  width: 346px;
+  height: 58px;
+  left: 85px;
+  top: 473px;
+  border: none;
+  background: #F1F2F4;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.secondbox{
+  
+  position: absolute;
+  width: 61px;
+  height: 58px;
+  left: 474px;
+  top: 474px;
+  border: none;
+  background: #F1F2F4;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.pagetext{
+  position: absolute;
+  width: 70px;
+  height: 25px;
+  left: 553px;
+  top: 475px;
+  
+  font-family: 'NanumSquare_ac';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 25px;
+
+  color: #2C2C2C;
+}
+.thirdbox{
+  position: absolute;
+  width: 61px;
+  height: 56px;
+  left: 638px;
+  top: 478px;
+  border: none;
+  background: #F1F2F4;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.daysagotext{
+  position: absolute;
+  width: 120px;
+  height: 25px;
+  left: 717px;
+  top: 478px;
+
+  font-family: 'NanumSquare_ac';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 25px;
+
+  color: #2C2C2C;
+
+}
+
+.orange{
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  left: 840px;
+  top: 478px;
+}
+.orange:hover {
+  opacity: 80%;
+}
+.mypageshin{
+  position: absolute;
+  width: 355px;
+  height: 48px;
+  left: 1518px;
+  top: 65px;
+}
+.mypageshin:hover{
+  opacity: 80%;
+}
+.firstrec{
+  position: absolute;
+  width: 160px;
+  height: 28px;
+  left: 104px;
+  top: 979px;
+
+  font-family: 'NanumSquare_ac';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 28px;
+  /* identical to box height */
+
+
+  color: #000000;
+
+}
+.secondrec{
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  left: 687px;
+  top: 979px;
+
+  font-family: 'NanumSquare_ac';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 28px;
+  /* identical to box height */
+
+
+  color: #000000;
+
+}
+
+.thirdrec{
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  left: 1269px;
+  top: 979px;
+
+  font-family: 'NanumSquare_ac';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 28px;
+  /* identical to box height */
+
+
+  color: #000000;
+
+}
+.firsty{
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 508px;
+  height: 525px;
+  left: 104px;
+  top: 1050px;
+
+  border: 3px solid #BEBEBE;
+  filter: drop-shadow(3px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+  }
+  .secondy{
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 508px;
+  height: 525px;
+  left: 687px;
+  top: 1050px;
+
+  border: 3px solid #BEBEBE;
+  filter: drop-shadow(3px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+  }
+  .thirdy{
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 537px;
+  height: 525px;
+  left: 1269px;
+  top: 1050px;
+
+  border: 3px solid #BEBEBE;
+  filter: drop-shadow(3px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+  }
+/* SearchBar.css
 .real-search-bar-logo {
   padding: 40px;
   font-size: 100px;
@@ -80,4 +317,4 @@
 .search-results li {
   margin-bottom: 5px;
   color: #333333;
-}
+} */

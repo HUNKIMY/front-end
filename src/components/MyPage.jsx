@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import './MyPage.css';
+import mypage from './mypage.png';
+import stocklist from './stocklist.png';
+import lastlist from './lastlist.png';
+import arrowi from './arrow.png';
 
 const api = axios.create({
   baseURL: 'http://localhost:8080',
@@ -36,24 +40,35 @@ const MyPage = () => {
   }, []);
 
   return (
+
     <div className="my-page-container">
-      <h1 className="my-page-title">My page</h1>
+          <img className='mypageshin' src={mypage} alt=""/>
+      <h2 className="my-page-title">신주호 님, 안녕하세요  </h2>
+      <h3 className='mystock'>나의 주식</h3>
+      <div>
+        <img className='stocklist' src={stocklist} alt="" />
+        {/* <img className='lastlist' src={lastlist} alt="" />
+        <img className='arrow' src={arrowi} alt="" /> */}
+      </div>
       <div className="list-container">
-        <ul className="search-history-list">
+      <div className="rectangleinme">        <ul className="search-history-list">
           {userData.length > 0 ? (
             userData.map((user, index) => (
               <div key={index}>
-                <li>Company Name: {user.companyName}</li>
-                <li>Page: {user.page}</li>
-                <li>Days: {user.days}</li>
-                <li>Created At: {user.createdAt}</li>
-                <li>Updated At: {user.updatedAt}</li>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{user.updatedAt} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {user.companyName}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {user.page} 페이지&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {user.days} 일 전까지
+                </p>
+
+                
               </div>
             ))
           ) : (
             <li>No userdata found.</li>
           )}
-        </ul>
+        </ul></div>
+
       </div>
     </div>
   );

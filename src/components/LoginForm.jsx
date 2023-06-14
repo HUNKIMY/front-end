@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './LoginForm.css';
+import image from './newsimage.png';
 
 const api = axios.create({
   baseURL: 'http://localhost:8080'
@@ -48,29 +49,36 @@ console.log(response.data.result.jwt)
 
   return (
     <div className="login-container">
-      <h1>Stocks.ing</h1>
+    <div className='newsimage'>
+    <img src={image} alt="Image" />
+    </div>
+
+
+      <h2 className="real-search-bar-logo">Stock.ing</h2>
+      <h2 className='real-search-bar-d'>뉴스 홍수시대, 흐름이 궁금하다면?</h2>
+      <h2 className='real-search-bar-d2'>내가 관심있는 종목의 수 많은 뉴스 기사들을 한눈에 파악하자</h2>
       <form className="login-form" onSubmit={handleLogin}>
-        <h2 className="form-title">로그인</h2>
+        <h2 className="form-title">Log In</h2>
         {error && <p className="error-message">{error}</p>}
         <input
           type="email"
           placeholder="이메일 주소"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="form-input"
+          className="login1"
         />
         <input
           type="password"
           placeholder="비밀번호"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="form-input"
+          className="login2"
         />
-        <button type="submit" className="submit-button">로그인</button>
+        <button type="submit" className="loginbutton">로그인</button>
       </form>
-      <p className="register-link">
-        계정이 없으신가요? <a href="/app/users/sign-up">회원가입</a>
-      </p>
+      <p className="register">
+        계정이 없으신가요? </p><a className='link' href="/app/users/sign-up">회원가입</a>
+      
     </div>
   );
 };
