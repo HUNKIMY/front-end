@@ -23,7 +23,20 @@
   line-height: 20px;
   color: #2C2C2C;
 }
+.summary1{
+  position: relative;
 
+  left: 46px;
+  right: 46px;
+  width: 500px;
+
+  font-family: 'NanumSquare_ac';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 36px;
+  color: #2C2C2C;
+}
 
 
 .result-logo{
@@ -269,14 +282,31 @@ height: 33px;
 left: 129px;
 top: 268px;
 }
-
+.ratioimage{
+  width: 400px;
+  height: 400px;
+  margin-left: 70px;
+}
+.ratioimage2{
+  position: relative;
+  width: 500px;
+  height: 400px;
+  margin-left: 65px;
+  margin-top: 60px;
+  
+}
 /* Group 6 */
 .group-6 {
 position: absolute;
-width: 55px;
+width: 300px;
 height: 17px;
-left: 243px;
-top: 280px;
+left: 143px;
+top: 260px;
+font-family: 'NanumSquare';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
 }
 
 /* Iconsax/Linear/chartcircle */
@@ -561,6 +591,16 @@ width: 18px;
 height: 18px;
 left: 1247px;
 top: 1340px;
+
+
+
+
+font-family: 'NanumSquare_ac';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 20px;
+color: #2C2C2C;
 }
 
 /* image 5 */

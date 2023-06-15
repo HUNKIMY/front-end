@@ -45,5 +45,6 @@
     "plugins": [
       "@babel/plugin-transform-runtime"
     ]
-  }
+  },
+  "proxy" : "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService" 
 }

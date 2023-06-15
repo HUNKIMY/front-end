@@ -50,6 +50,7 @@ const MyPage = () => {
         {/* <img className='lastlist' src={lastlist} alt="" />
         <img className='arrow' src={arrowi} alt="" /> */}
       </div>
+      <h3 className='myhistory'>나의 검색 기록</h3>
       <div className="list-container">
       <div className="rectangleinme">        <ul className="search-history-list">
           {userData.length > 0 ? (

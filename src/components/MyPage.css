@@ -63,3 +63,20 @@ box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 border-radius: 20px;
 z-index: 1;
 }
+.myhistory{
+  position: absolute;
+width: 256px;
+height: 23px;
+left: 71px;
+top: 430px;
+
+font-family: 'NanumSquare';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+/* identical to box height */
+
+
+color: #2C2C2C;
+}

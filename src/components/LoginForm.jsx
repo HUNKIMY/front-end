@@ -78,8 +78,12 @@ console.log(response.data.result.jwt)
       </form>
       <p className="register">
         계정이 없으신가요? </p><a className='link' href="/app/users/sign-up">회원가입</a>
-      
+        
+
+
     </div>
+   
+
   );
 };
 
